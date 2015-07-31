@@ -1,0 +1,15 @@
+crawler:
+  image: trenpixster/elixir:1.0.5
+#  command: "iex -S mix"
+  command: "true"
+  volumes:
+    - .:/app
+  working_dir: "/app"
+
+es:
+  image: elasticsearch:1.7.1
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+  links:
+    - crawler
